@@ -1,0 +1,35 @@
+{
+  "name": "nitty-gritty-css",
+  "version": "0.1.0",
+  "description": "Simple CSS Classes with SASS mixins",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf css",
+    "build:dev": "./node_modules/node-sass/bin/node-sass scss/nitty-gritty.scss css/nitty-gritty.css",
+    "build:production": "npm run clean && ./node_modules/node-sass/bin/node-sass scss/nitty-gritty.scss css/nitty-gritty.css --output-style compressed && npm run add-banners",
+    "add-banners": "./node_modules/add-banner/bin/add-banner css/nitty-gritty.css --template banner.tmpl",
+    "start": "npm run clean && watch 'npm run build:dev' scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-nitty-gritty/nitty-gritty-css.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "framework",
+    "responsive"
+  ],
+  "author": "Mark Rabey <mark@opentrace.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-nitty-gritty/nitty-gritty-css/issues"
+  },
+  "homepage": "https://github.com/the-nitty-gritty/nitty-gritty-css",
+  "devDependencies": {
+    "add-banner": "github:jonschlinkert/add-banner",
+    "node-sass": "^3.8.0",
+    "watch": "^0.19.1"
+  }
+}
